@@ -18,16 +18,16 @@ Where `%` is the filename
 
 ## Progress
 
-|     | Haskell| ES6       | C      |
-| --- | ------ | --------- | ------ |
-| 1   | :tada: | :tada:    | :zzz:  |
-| 2   | :tada: | :tada:    | :zzz:  |
-| 3   | :tada: | :x:       | :zzz:  |
-| 4   | :tada: | :x:       | :zzz:  |
-| 5   | :tada: | :tada:    | :zzz:  |
-| 6   | :tada: | :x:       | :zzz:  |
-| 7   | :tada: | :x:       | :zzz:  |
-| 8   | :tada: | :x:       | :zzz:  |
-| 9   | :tada: | :x:       | :tada: |
-| 10  | :tada: | :x:       | :zzz:  |
-| 11  | :zzz:  | :zzz:     | :zzz:  |
+| Day | Haskell | ES6        | C      |
+| --- | ------- | ---------- | ------ |
+| 1   | :tada:  | :tada:     | :x:    |
+| 2   | :tada:  | :tada:     | :x:    |
+| 3   | :tada:  | :thinking: | :x:    |
+| 4   | :tada:  | :thinking: | :x:    |
+| 5   | :tada:  | :tada:     | :x:    |
+| 6   | :tada:  | :thinking: | :x:    |
+| 7   | :tada:  | :thinking: | :x:    |
+| 8   | :tada:  | :thinking: | :x:    |
+| 9   | :tada:  | :thinking: | :tada: |
+| 10  | :tada:  | :thinking: | :x:    |
+| 11  | :zzz:   | :zzz:      | :zzz:  |
