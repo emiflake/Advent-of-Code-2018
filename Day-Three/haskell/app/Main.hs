@@ -1,5 +1,5 @@
 {-# LANGUAGE LambdaCase #-}
-module Day3 where
+module Main where
 
 import           Data.List
 import qualified Data.Map.Strict as Map

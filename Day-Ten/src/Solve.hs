@@ -67,13 +67,6 @@ stepStars = fmap stepStar
 stepStar :: Star -> Star
 stepStar (Star (x, y) (xv, yv)) = Star (x + xv, y + yv) (xv, yv) 
 
-others :: [a] -> [[a]]
-others xs = ($ []) . foldr f (const []) $ zip (drop 1 . tails $ xs) xs
-    where f (as, a) b front = (front ++ as) : b (front ++ [a])
-
-othersWithSelf :: [a] -> [(a, [a])]
-othersWithSelf = zip <$> id <*> others
-
 distance :: Star -> Star -> Int
 distance (Star (x1, y1) _) (Star (x2, y2) _) = abs (x1 - x2) + abs (y1 - y2)  
 
@@ -81,12 +74,9 @@ yspread :: [Star] -> Int
 yspread stars = maximum ys - minimum ys 
     where ys = fmap (snd . position) stars
 
-cost :: [Star] -> Int
-cost = sum . fmap (\(s, others) -> sum $ map (distance s) others ) . othersWithSelf
 
-
-dimfor :: [Star] -> (Int, Int)
-dimfor stars = dim
+bounds :: [Star] -> ((Int, Int), (Int, Int))
+bounds stars = ((w, h), (minx, miny))
     where posses = map position stars
           xs = map fst posses
           ys = map snd posses
@@ -95,41 +85,37 @@ dimfor stars = dim
           (minx, miny) = (minimum xs, minimum ys)
           (maxx, maxy) = (maximum xs, maximum ys)
   
-          dim@(w, h) = (maxx - minx + 1, maxy - miny + 1)
+          (w, h) = (maxx - minx + 1, maxy - miny + 1)
 
 imageFor :: [Star] -> Img
-imageFor stars = foldr (\(x, y) img -> img `setPixel` ((x - minx, y - miny), PixelRGB8 255 255 255)) 
-                 (fill black dim) posses
-    where posses = map position stars
-          xs = map fst posses
-          ys = map snd posses
-          ps = zip xs ys
-
-          (minx, miny) = (minimum xs, minimum ys)
-          (maxx, maxy) = (maximum xs, maximum ys)
-
-          dim@(w, h) = (maxx - minx + 1, maxy - miny + 1)
+imageFor stars = foldr (\(Star (x, y) _) img -> img `setPixel` ((x - minx, y - miny), PixelRGB8 255 255 255)) 
+                 (fill black dim) stars
+    where (dim@(w, h), (minx, miny)) = bounds stars
 
 solve :: String -> IO ()
 solve path = do
     stars <- parseStars <$> readFile path
-    let starList = iterate stepStars stars
+    let starList = iterate (\(i, v) -> (succ i, stepStars v)) (0, stars)
 
     let findBest (x:y:xs) c | c x < c y = x
                             | otherwise = findBest (y:xs) c
 
-    let best = findBest starList yspread
-    let dim = dimfor best in writePng "out.png" $ createImage dim (imgReader (imageFor best))
+    let (i, best) = findBest starList (yspread . snd)
+    let (dim, _) = bounds best in writePng "out.png" $ createImage dim (imgReader (imageFor best))
                         
+    putStrLn " ---- PART ONE ---- "
+    putStrLn "Wrote to 'out.png'"
+    putStrLn " ---- PART TWO ---- "
+    print i
 
-    let searchRange = take 30 $ drop 10870 starList
-    let costBasedStarList = map (\ss -> (yspread ss, ss)) searchRange
-    let (cost, stars) = head . sortOn fst $ costBasedStarList
+    -- let searchRange = take 30 $ drop 10870 starList
+    -- let costBasedStarList = map (\ss -> (yspread ss, ss)) searchRange
+    -- let (cost, stars) = head . sortOn fst $ costBasedStarList
 
 
-    let dim = dimfor stars
+    -- let (dim, _) = bounds stars
 
 
-    forM_ (zip [0..] searchRange) $ \(i, ss) ->
-        let dim = dimfor ss in      
-        writePng ("imgs/test" ++ show i ++ ".png") $ createImage dim (imgReader (imageFor ss))
+    -- forM_ (zip [0..] searchRange) $ \(i, ss) -> do
+    --     let (dim, _) = bounds ss      
+    --     writePng ("imgs/test" ++ show i ++ ".png") $ createImage dim (imgReader (imageFor ss))

@@ -106,14 +106,12 @@ solve path = do
     let reqs = Solve.parse f
 
     putStrLn " ---- PART ONE ---- "
-    putStrLn "My solve: "
     print . reverse . stepThrough [] $ reqs
 
     putStrLn " ---- PART TWO ---- "
-    putStrLn "My solve: "
     let steps = stepThroughTimed' (workers 5) [] reqs
     print . (\x -> x - 2) . length $ steps
 
-    putStrLn " --- DEBUG --- "
+    -- putStrLn " --- DEBUG --- "
     -- forM_ steps $ \(ws, rs) ->
     --     putStrLn $ "Workers: " ++ show (catMaybes ws) ++ "\t\t| State: " ++ show rs
