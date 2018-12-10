@@ -1,0 +1,54 @@
+name:                Day-Ten
+version:             0.1.0.0
+github:              "githubuser/Day-Ten"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2018 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/Day-Ten#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- parsec >= 3.1 && < 3.2
+- containers >= 0.5 && < 0.7
+- pretty-simple == 2.2.0.1
+- JuicyPixels >= 3.3 && < 3.4
+- array >= 0.5.2 && < 0.5.3
+- vector == 0.12.0.2 
+
+library:
+  source-dirs: src
+
+executables:
+  Day-Ten-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Day-Ten
+
+tests:
+  Day-Ten-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Day-Ten

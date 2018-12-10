@@ -1,0 +1,50 @@
+name:                Day-Eight
+version:             0.1.0.0
+github:              "githubuser/Day-Eight"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2018 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/Day-Eight#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- parsec == 3.1.13.0
+- parallel == 3.2.2.0
+
+library:
+  source-dirs: src
+
+executables:
+  Day-Eight-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Day-Eight
+
+tests:
+  Day-Eight-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Day-Eight
