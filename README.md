@@ -19,7 +19,8 @@ Where `%` is the filename
 ### C
 Compile using gcc
 ```shell
-gcc main.c -o main.o && ./main```
+gcc main.c -o main.o && ./main
+```
 
 ## Progress
 
