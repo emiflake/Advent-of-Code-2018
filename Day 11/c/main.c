@@ -109,7 +109,7 @@ Maximum maximumFor(FuelCells* grid, int size) {
 }
 
 int main() {
-    FuelCells* grid = generate(4172);
+    FuelCells* grid = generate(3999);
 
     printf(" ---- PART ONE ---- \n");
     Maximum m1 = maximumFor(grid, 3);
@@ -130,5 +130,24 @@ int main() {
     }
     printf("%i,%i,%i\n", m2.x, m2.y, m2.size);
 
+
+
+    printf(" ---- MISC STF ----\n");
+
+    int total = 0;
+
+    for (int x = 0; x < GRID_SIZE; ++x) {
+        for (int y = 0; y < GRID_SIZE; ++y) {
+            total += (*grid)[x][y];
+        }
+    }
+
+    double avg = (double)total / ((double) (GRID_SIZE + 1)*(GRID_SIZE + 1));
+    printf("total: %i,\navg: %f\n", total, avg);
+
+    // from these results we can see that there is a slight lean to negative values
+    // what this means for us is, we can now justify our low search range of 30
+    // because over higher sizes, we'll generally get smaller results
+    
     return 0;
 }
