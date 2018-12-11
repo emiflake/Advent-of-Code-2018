@@ -30,5 +30,5 @@ Where `%` is the filename
 | 8   | :tada:  | :thinking: | :x:    |
 | 9   | :tada:  | :thinking: | :tada: |
 | 10  | :tada:  | :thinking: | :x:    |
-| 11  | :tada:  | :thinking: | :zzz:  |
-| 11  | :zzz:   | :zzz:      | :zzz:  |
+| 11  | :tada:  | :thinking: | :tada: |
+| 12  | :zzz:   | :zzz:      | :zzz:  |
