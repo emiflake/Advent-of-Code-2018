@@ -37,4 +37,5 @@ gcc main.c -o main.o && ./main
 | 9   | :tada:  | :thinking: | :tada: |
 | 10  | :tada:  | :thinking: | :x:    |
 | 11  | :tada:  | :thinking: | :tada: |
-| 12  | :zzz:   | :zzz:      | :zzz:  |
+| 12  | :tada:  | :thinking: | :x:    |
+| 13  | :zzz:   | :zzz:      | :zzz:  |
