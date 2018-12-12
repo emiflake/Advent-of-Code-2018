@@ -16,6 +16,12 @@ node %
 ```
 Where `%` is the filename
 
+### C
+Compile using gcc
+```shell
+gcc main.c -o main.o && ./main
+```
+
 ## Progress
 
 | Day | Haskell | ES6        | C      |
