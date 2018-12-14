@@ -24,17 +24,19 @@ gcc main.c -o main.o && ./main
 
 ## Progress
 
-| Day | Haskell | ES6        | C      |
-| --- | ------- | ---------- | ------ |
-| 1   | :tada:  | :tada:     | :x:    |
-| 2   | :tada:  | :tada:     | :x:    |
-| 3   | :tada:  | :thinking: | :x:    |
-| 4   | :tada:  | :thinking: | :x:    |
-| 5   | :tada:  | :tada:     | :x:    |
-| 6   | :tada:  | :thinking: | :x:    |
-| 7   | :tada:  | :thinking: | :x:    |
-| 8   | :tada:  | :thinking: | :x:    |
-| 9   | :tada:  | :thinking: | :tada: |
-| 10  | :tada:  | :thinking: | :x:    |
-| 11  | :tada:  | :thinking: | :tada: |
-| 12  | :zzz:   | :zzz:      | :zzz:  |
+| Day | Haskell | ES6        | C       |
+| --- | ------- | ---------- | ------- |
+| 1   | :tada:  | :tada:     | :x:     |
+| 2   | :tada:  | :tada:     | :x:     |
+| 3   | :tada:  | :thinking: | :x:     |
+| 4   | :tada:  | :thinking: | :x:     |
+| 5   | :tada:  | :tada:     | :x:     |
+| 6   | :tada:  | :thinking: | :x:     |
+| 7   | :tada:  | :thinking: | :x:     |
+| 8   | :tada:  | :thinking: | :x:     |
+| 9   | :tada:  | :thinking: | :tada:  |
+| 10  | :tada:  | :thinking: | :x:     |
+| 11  | :tada:  | :thinking: | :tada:  |
+| 12  | :tada:  | :thinking: | :zzz:   |
+| 13  | :zzz:   | :tada:     | :zzz:   |
+| 14  | :tada:  | :thinking: | :tools: |
